@@ -1,0 +1,15 @@
+\startmodule complexslides.pagebackground.default
+\unprotect
+  \startuniqueMPgraphic {complexslides:pagebackground}
+    StartPage;
+    fill Page withcolor \MPcolor{foreground:1};
+    fill Page cornered (\the\paperheight/10) withcolor \MPcolor{background:0};
+    StopPage
+  \stopuniqueMPgraphic
+
+  \defineoverlay[complexslides:pagebackground][\useMPgraphic{complexslides:pagebackground}]
+
+  \setupbackgrounds[page][background={complexslides:pagebackground}]
+
+\protect
+\stopmodule

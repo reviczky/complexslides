@@ -1,0 +1,65 @@
+\startmodule complexslides.setup.default
+\unprotect
+
+\setupalign       [hanging] 
+\setupblank       [medium]
+\setupwhitespace  [medium]
+% Don't be too loud when complaining
+\hfuzz 20pt \relax
+
+\setuptolerance[verytolerant]
+\setuptolerance[vertical,verytolerant]
+
+\setupheader[style=\bf\ssc, color=foreground:1]
+\setupfooter[style=small]
+
+% Style for title page
+\definestyle[titlestyle][style=\bf\ssd, color=foreground:1]
+\definestyle[institutestyle][style=\tfa, color=foreground:1]
+\definestyle[authorstyle][style=\ssb, color=foreground:2]
+\definestyle[datestyle][style=\tf, color=]
+\definestyle[locationstyle][style=\tf, color=]
+
+\setuphead[subject,section]
+          [style=\bf\ssc,
+           color=foreground:1,
+     alternative=middle,
+          number=no,
+          header=high,
+            page=yes,
+          before={\blank[big,preference]},
+           after={\blank[small]},
+          ]
+
+\setuphead[subsubject,subsection]
+          [
+     alternative=default,
+           style=\bfa\ss,
+           color=foreground:2,
+          number=no,
+          before={\placefloats\page[preferance]
+                  \blank[medium]},
+           after={\blank[small]},
+          ]
+
+\setuphead[subsubsubject,subsubsection]
+          [
+     alternative=default,
+           style=\bf\ss,
+           color=foreground:1,
+          before={\blank[small]},
+           after={\blank[small]},
+          ]
+
+\setuphead[subsubsubsubject,subsubsubsection]
+          [
+     alternative=default,
+           style=\it,
+           color=foreground:2,
+          before={\blank[small]},
+           after={\blank[small]},
+          ]
+
+
+\protect
+\stopmodule

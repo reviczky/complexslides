@@ -1,0 +1,29 @@
+\startmodule complexslides.marking.default
+\unprotect
+
+\usemodule[visualcounter]
+\definevisualcounter[page][countdown][counter=userpage, palette=colorpalette]
+
+\definepalet
+  [colorpalette]
+  [active=foreground:2,
+     past=foreground:1,
+   future=gray] 
+
+\setupheadertexts[{\getmarking[section] \doiftext{\getmarking[section]}{(cont.)}}]
+
+\setupfootertexts[\getvariable{talk}{shorttitle}]
+\setupfootertexts[\getvariable{talk}{shortauthor}][\usevisualcounter{page}]
+
+\setupbackgrounds[footer][text][frame=off,background={complexslides:footer:frame}]
+\defineoverlay[complexslides:footer:frame][\useMPgraphic{complexslides:footer:frame}]
+
+\startuseMPgraphic{complexslides:footer:frame}
+    draw (0,OverlayHeight) -- (OverlayWidth if \currentpage > 1: /2 fi, OverlayHeight)
+      withpen pencircle scaled 2bp 
+      withcolor \MPcolor{foreground:1};
+    setbounds currentpicture to OverlayBox ;
+\stopuseMPgraphic
+
+\protect
+\stopmodule

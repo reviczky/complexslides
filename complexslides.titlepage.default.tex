@@ -1,0 +1,21 @@
+\startmodule complexslides.titlepage.default
+\unprotect
+
+\startsetups[complexslides:titlepage]
+  \startstandardmakeup
+      \blank[force,2*big]
+    \startalignment[middle]
+      \titlestyle{\getvariable{talk}{title}}
+      \blank[big]
+      \authorstyle{\getvariable{talk}{author}}
+      \blank[small]
+      \institutestyle{\getvariable{talk}{institute}}
+      \vfill
+      \locationstyle{\getvariable{talk}{location}}
+      \blank[big]
+    \stopalignment
+  \stopstandardmakeup
+\stopsetups
+
+\protect
+\stopmodule

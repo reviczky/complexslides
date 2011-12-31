@@ -1,0 +1,33 @@
+\startmodule complexslides
+
+\unprotect
+
+\setvariables
+  [talk]
+  [author=,
+   shortauthor={\getvariable{talk}{author}},,
+   title=,
+   shorttitle={\getvariable{talk}{title}},
+   institute=,
+   location=,
+   set={\setups{complexslides:titlepage}}]
+
+\def\load_complex_slides_configuration#parameter%
+    {\doiffileelse{complexslides.#parameter.\currentmoduleparameter{#parameter}}
+        {\usemodule[complexslides.#parameter.\currentmoduleparameter{#parameter}]}
+        {% TODO: Show a warning on screen
+         \usemodule[complexslides.#parameter.default]}}
+
+\load_complex_slides_configuration {fontscheme}
+\load_complex_slides_configuration {colorscheme}
+\load_complex_slides_configuration {layout}
+\load_complex_slides_configuration {pagebackground}
+\load_complex_slides_configuration {setup}
+\load_complex_slides_configuration {marking}
+\load_complex_slides_configuration {titlepage}
+
+\setupinteraction
+  [state=start,style=, title=\getvariable{talk}{title}, subtitle=\getvariable{talk}{location}, author=\getvariable{talk}{author}]
+
+\protect
+\stopmodule
