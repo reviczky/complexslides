@@ -2,6 +2,20 @@
 
 \unprotect
 
+\setupmodule
+  [
+    fontscheme=default,
+    colorscheme=default,
+    layout=default,
+    pagebackground=default,
+    setup=default,
+    itemize=default,
+    floats=default,
+    marking=default,
+    titlepage=default,
+  ]
+
+
 \setvariables
   [talk]
   [author=,
@@ -18,16 +32,23 @@
         {% TODO: Show a warning on screen
          \usemodule[complexslides.#parameter.default]}}
 
+\def\load_complex_slides_extra_configuration#extra%
+      {\usemodule[complexslides.extras.#extra]}
+
 \load_complex_slides_configuration {fontscheme}
 \load_complex_slides_configuration {colorscheme}
 \load_complex_slides_configuration {layout}
 \load_complex_slides_configuration {pagebackground}
 \load_complex_slides_configuration {setup}
+\load_complex_slides_configuration {itemize}
+\load_complex_slides_configuration {floats}
 \load_complex_slides_configuration {marking}
 \load_complex_slides_configuration {titlepage}
 
 \setupinteraction
-  [state=start,style=, title=\getvariable{talk}{title}, subtitle=\getvariable{talk}{location}, author=\getvariable{talk}{author}]
+  [state=start,style=]
+
+\processcommacommand[\currentmoduleparameter{extras}]\load_complex_slides_extra_configuration
 
 \protect
 \stopmodule

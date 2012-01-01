@@ -1,0 +1,41 @@
+\startmodule complexslides.extras.framedtext 
+
+\unprotect
+
+\defineframedtext                                                                                                                          
+  [leftbarframe]
+  [
+    \c!frame=\v!off,
+    \c!width=\v!broad,
+    \c!leftframe=\v!on,
+    \c!rulethickness=1em,
+    \c!offset=\v!overlay,
+    \c!loffset=\the\dimexpr\framedparameter\c!rulethickness*2\relax,
+    \c!roffset=\framedparameter\c!rulethickness,
+    \c!toffset=\zeropoint,
+    \c!boffset=\zeropoint,
+    \c!background=\v!color,
+    \c!framecolor=black,
+    \c!backgroundcolor=lightgray,
+  ]
+
+\defineframedtext
+  [question]
+  [leftbarframe]
+  [
+    \c!backgroundcolor=background:2,
+    \c!framecolor=foreground:2,
+  ]
+
+
+\defineframedtext
+  [answer]
+  [leftbarframe]
+  [
+    \c!backgroundcolor=background:3,
+    \c!framecolor=foreground:3,
+  ]
+
+
+\protect
+\stopmodule

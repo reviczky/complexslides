@@ -1,0 +1,37 @@
+\startmodule complexslides.itemize.default
+
+\startuseMPgraphic{simpleslides:itemize:bullet}
+  draw (0,0) 
+    for i := 0 step 60 until 2250 :
+      .. (i/500*(sind(i), cosd(i)) randomized 1bp) 
+    endfor 
+      withcolor \MPcolor{darkblue} ;
+\stopuseMPgraphic
+
+\startuseMPgraphic{simpleslides:itemize:dash}
+  draw
+  for i := 1 upto 10 :
+    ((0,0) randomized 2bp) --
+    ((8bp,2bp) randomized 2bp) --
+    ((0, 4bp) randomized 2bp) --
+  endfor cycle withcolor \MPcolor{darkblue};
+\stopuseMPgraphic
+
+\setupitemize[color=darkblue, 
+              headstyle=\tfa,
+              headcolor=darkblue]
+
+\setupitemize[autointro]
+
+\setupitemize[2][packed,joinedup]
+\setupitemize[3][packed,paragraph]
+\setupitemize[2][headstyle=bold, headcolor=]
+
+\definesymbol[1][\useMPgraphic{simpleslides:itemize:bullet}]
+\definesymbol[2][\useMPgraphic{simpleslides:itemize:dash}]
+\definesymbol[3][\textbullet]
+
+\setupitemize[itemalign=flushright, distance=0.5em]
+\setupitemize[broad,fit]
+
+\stopmodule
