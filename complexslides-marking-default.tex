@@ -19,11 +19,13 @@
 \defineoverlay[complexslides:footer:frame][\useMPgraphic{complexslides:footer:frame}]
 
 \startuseMPgraphic{complexslides:footer:frame}
-    draw ((0,OverlayHeight) -- (OverlayWidth if \currentpage > 1: /2 fi, OverlayHeight))
-      randomized 2bp
-      withpen pencircle scaled 2bp 
+   save p;  path p;
+   p := (0,OverlayHeight) -- (OverlayWidth if \currentpage > 1: /2 fi, OverlayHeight);
+   for i := 1 upto 5 :
+    draw p randomized 2bp
       withcolor \MPcolor{foreground:1};
     setbounds currentpicture to OverlayBox ;
+   endfor
 \stopuseMPgraphic
 
 \protect
