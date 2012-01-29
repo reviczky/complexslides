@@ -5,7 +5,7 @@
     for i := 0 step 60 until 2250 :
       .. (i/500*(sind(i), cosd(i)) randomized 1bp) 
     endfor 
-      withcolor \MPcolor{darkblue} ;
+      withcolor \MPcolor{foreground:1} ;
 \stopuseMPgraphic
 
 \startuseMPgraphic{simpleslides:itemize:dash}
@@ -14,12 +14,12 @@
     ((0,0) randomized 2bp) --
     ((8bp,2bp) randomized 2bp) --
     ((0, 4bp) randomized 2bp) --
-  endfor cycle withcolor \MPcolor{darkblue};
+  endfor cycle withcolor \MPcolor{foreground:1};
 \stopuseMPgraphic
 
-\setupitemize[color=darkblue, 
+\setupitemize[color=foreground:1, 
               headstyle=\tfa,
-              headcolor=darkblue]
+              headcolor=foreground:1]
 
 \setupitemize[autointro]
 

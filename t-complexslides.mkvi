@@ -28,7 +28,7 @@
 
 \def\complexslides_load_configuration#parameter%
     {\doiffileelse{complexslides-#parameter-\currentmoduleparameter{#parameter}}
-        {\usemodule[complexslides-#parameter-\currentmoduleparameter{#parameter}]}
+        {\expanded{\usemodule[complexslides-#parameter-\currentmoduleparameter{#parameter}]}}
         {% TODO: Show a warning on screen
          \usemodule[complexslides-#parameter-default]}}
 
@@ -47,6 +47,8 @@
 
 \setupinteraction
   [state=start,style=]
+
+\setupcolors  [textcolor=foreground:0]
 
 \processcommacommand[\currentmoduleparameter{extras}]\complexslides_load_extra_configuration
 
