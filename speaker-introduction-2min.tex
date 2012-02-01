@@ -1,0 +1,96 @@
+% This file is a solution template for:
+
+% - Introducing another speaker.
+% - Talk length is about 2min.
+% - Style is informal.
+
+% This is adapted from the example by Till Tantau <tantau@users.sourceforge.net>
+% included as part of the beamer package in LaTeX
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, the author grants the extra permission to freely
+% copy and  modify this file as you see fit and even to delete this
+% copyright notice. 
+
+\usemodule[complexslides][marking=progressbar]
+
+% For a short talk, you can use the \type{markdown} module
+% to create a presentation. 
+%
+% \usemodule[markdown]
+%
+% The markdown module uses chapter as the top level header. Change that to
+% section.
+% 
+% \definestructurelevels
+%   [markdown]
+%   [
+%     section,
+%     subsection,
+%     subsubsection,
+%     subsubsubsection,
+%     subsubsubsubsection,
+%   ]
+
+% The markdown module does not handle all markdown features correctly.
+% If you need proper support of markdown, use \type{pandoc} to convert
+% markdown to TeX.
+
+\usemodule[filter]
+
+\defineexternalfilter
+  [markdown]
+  [filter={pandoc -f markdown -t context --number-sections -o \externalfilteroutputfile}]
+
+% In order to use sample images distributed with ConTeXt
+\setupexternalfigures[location={local,global,default}] 
+
+
+\starttext
+
+\setvariables
+  [talk]
+  [
+    title={Speaker Name},
+    shorttitle={},
+    location={Distinguished speaker for great seminar},
+  ]
+
+\startmarkdown
+# Speaker's Name
+
+## Current affiliation of Speaker
+
+\startplacefigure[location=right]
+  \externalfigure[mill]
+\stopplacefigure
+
+- Professor of mathematics, University of Wherever.
+- Junior partner at company X.
+- Speaker for organization/project X.
+
+# Speaker's Name
+
+## Experience and achievements
+
+- Academic degree, but only if appropriate
+- Current and/or previous positions, possibly with dates
+- Publications (possibly just number of publications)
+- Awards, prizes
+
+# Speaker's Name
+
+## Concerning today's talk
+
+- Expert who has worked in the field/project for X month/years.
+- Will present his/her/group's/company's research on the subject.
+- Will summarize project report or current project status.
+
+\stopmarkdown
+
+\stoptext

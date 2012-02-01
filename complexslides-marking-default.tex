@@ -10,8 +10,6 @@
      past=foreground:1,
    future=base:0] 
 
-\setupheadertexts[{\getmarking[section] \doiftext{\getmarking[section]}{(cont.)}}]
-
 \setupfootertexts[\getvariable{talk}{shorttitle}]
 \setupfootertexts[\getvariable{talk}{shortauthor}][\usevisualcounter{page}]
 
@@ -20,7 +18,7 @@
 
 \startuseMPgraphic{complexslides:footer:frame}
    save p;  path p;
-   p := (0,OverlayHeight) -- (OverlayWidth if \currentpage > 1: /2 fi, OverlayHeight);
+   p := (0,OverlayHeight) -- (OverlayWidth if "\currentmakeup" = "" : /2 fi, OverlayHeight);
    for i := 1 upto 5 :
     draw p randomized 2bp
       withcolor \MPcolor{foreground:1};

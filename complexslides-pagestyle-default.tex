@@ -1,0 +1,69 @@
+\startmodule complexslides-stylestyle-default
+
+\unprotect
+
+\setupheader[\c!style=\bf\ssc, \c!color=base:0, \c!align=\v!middle]
+\setupfooter[\c!style=small]
+
+\setupheadertexts[{\getmarking[section]}]
+
+\setuphead[subject,section]
+          [\c!style=\bf\ssc,
+           \c!color=foreground:1,
+       \c!placehead=\v!empty,
+          \c!number=\v!no,
+            \c!page=\v!yes,
+          \c!before=,
+           \c!after={\blank[\v!small]},
+          ]
+
+\definehead
+  [slide]
+  [section]
+  [
+    \c!coupling=\v!section,
+    \c!default=\v!section,
+  ]
+
+\definemakeup
+  [slide]
+  [
+     \c!doublesided=\v!no,
+     \c!page=\v!yes,
+     \c!top=\vss,
+     \c!bottom=\vss,
+     \c!bottomstate=\v!normal,
+     \c!topstate=\v!normal,
+     \c!textstate=\v!normal,
+     \c!headerstate=\v!stop,
+     \c!footerstate=\v!stop,
+     \c!pagestate=\v!stop,
+     \c!style={\switchtobodyfont[24pt]\setupinterlinespace},
+     \c!color=foreground:2,
+     \c!align=\v!middle,
+   ] 
+
+
+\startuseMPgraphic {complexslides:pagebackground}
+  StartPage;
+  % fill Page withcolor \MPcolor{foreground:1};
+  circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1});
+  newpath page_body;
+  page_body :=
+      if "\currentmakeup" = "" :
+          unitsquare xyscaled (bbwidth Page, 
+                     bbheight Page -  \the\dimexpr\topspace+\headerheight+(\headerdistance/4)\relax)
+      else : Page 
+      fi ;
+  fill page_body superellipsed 0.98 withcolor \MPcolor{background:0};
+  StopPage;
+\stopuseMPgraphic
+
+\defineoverlay[complexslides:pagebackground][\useMPgraphic{complexslides:pagebackground}]
+
+\setupbackgrounds[\v!page][\c!background={complexslides:pagebackground}]
+
+
+\protect
+
+\stopmodule
