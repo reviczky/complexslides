@@ -17,7 +17,7 @@
 % copy and  modify this file as you see fit and even to delete this
 % copyright notice. 
 
-\usemodule[complexslides]
+\usemodule[complexslides][marking=progressbar]
 
 % For a short talk, you can use the \type{markdown} module
 % to create a presentation. 
@@ -45,7 +45,11 @@
 
 \defineexternalfilter
   [markdown]
-  [filter={pandoc -f markdown -t context -o \externalfilteroutputfile}]
+  [filter={pandoc -f markdown -t context --number-sections -o \externalfilteroutputfile}]
+
+% In order to use sample images distributed with ConTeXt
+\setupexternalfigures[location={local,global,default}] 
+
 
 \starttext
 
@@ -57,12 +61,14 @@
     location={Distinguished speaker for great seminar},
   ]
 
-\page
-
 \startmarkdown
 # Speaker's Name
 
 ## Current affiliation of Speaker
+
+\startplacefigure[location=right]
+  \externalfigure[mill]
+\stopplacefigure
 
 - Professor of mathematics, University of Wherever.
 - Junior partner at company X.

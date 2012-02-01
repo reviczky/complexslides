@@ -27,15 +27,14 @@
     % fontscheme=default,
     % colorscheme=default, % cambria
     % layout=default, 
-    % pagebackground=default,
+    % pagestyle=default,
     % setup=default,
     % itemize=default,
     % floats=default,
-    % marking=default,
+    % marking=default, % progressbar
     % titlepage=default,
     extras={framedtext, % provides \startalert ... \stopaltert
                         % and \startresult ... \stopresult environment
-            makeup,     % provides \startslidemakeup ... \stopslidemakeup
            },
   ]
 
@@ -68,7 +67,7 @@
 %   15 and 30 slides, all told.
 
 
-\startsection[title={Make Titles Informative}]
+\startslide[title={Make Titles Informative}]
   % - A title should summarize the slide in an understandable fashion
   %   for anyone how does not follow everything on the slide itself.
 
@@ -77,18 +76,18 @@
     \item Use pictures when possible
     \item Do not put too much information on one slide
   \stopitemize
-\stopsection
+\stopslide
 
-\startsection[title={A Dutch Cow}]
+\startslide[title={A Dutch Cow}]
   % To include a full slide picute.
   \externalfigure[cow]
-\stopsection
+\stopslide
 
 \startslidemakeup
   An important point
 \stopslidemakeup
 
-\startsection[title={The main result}]
+\startslide[title={The main result}]
   \startalert
     Problem Statement and why it is difficult. Some more text to just fill up
     space to show how the environment looks with a multi-line text.
@@ -98,16 +97,16 @@
     Main result and its cool features. Some more text to just fill up
     space to show how the environment looks with a multi-line text.
   \stopresult
-\stopsection
+\stopslide
 
-\startsection[title={Summary}]
+\startslide[title={Summary}]
 
   \startitemize
     \item The {\em first main message} of your talk in one or two lines.
     \item The {\em second main message} of your talk in one or two lines.
     \item Perhaps a {\em third message}, but not more than that.
   \stopitemize
-\stopsection
+\stopslide
 
 \startslidemakeup
   Thank you
