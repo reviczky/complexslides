@@ -2,7 +2,7 @@
 
 \unprotect
 
-\setupheader[\c!style=\bf\ssc, \c!color=base:0, \c!align=\v!middle]
+\setupheader[\c!style=\bf\ssc, \c!color=foreground:1, \c!align=\v!middle, location=low]
 \setupfooter[\c!style=small]
 
 \setupheadertexts[{\getmarking[section]}]
@@ -81,7 +81,7 @@
                      -- urcorner Field[Text][Header]
                      -- lrcorner Field[Text][Footer]
                      -- cycle)
-                     enlarged (random_amount/2) ;
+                     enlarged (random_amount) ;
   else :
       page_boundary := Field[Text][Text] enlarged (-random_amount);
   fi;
@@ -94,8 +94,45 @@
        withpen pencircle scaled 6bp;
 
   if "\currentmakeup" = "" :
-     newpath toc_boundary;
+     newpath left_boundary, right_boundary;
+      left_boundary := (llcorner Field[LeftMargin][Footer]
+                     -- ulcorner Field[LeftMargin][Header]
+                     -- urcorner Field[LeftMargin][Header]
+                     -- lrcorner Field[LeftMargin][Footer]
+                     -- cycle)
+                     enlarged (random_amount/2) 
+                     complexslides_fuzzied random_amount ;
 
+      right_boundary := (llcorner Field[RightMargin][Footer]
+                      -- ulcorner Field[RightMargin][Header]
+                      -- urcorner Field[RightMargin][Header]
+                      -- lrcorner Field[RightMargin][Footer]
+                      -- cycle)
+                      enlarged (random_amount/2) 
+                     complexslides_fuzzied random_amount ;
+      
+     if LeftMarginWidth > 0 :
+        draw left_boundary 
+           withcolor \MPcolor{foreground:1}
+           withpen pencircle scaled 6bp;
+
+       fill left_boundary withcolor \MPcolor{background:0};
+     fi
+
+     if RightMarginWidth > 0 :
+        draw right_boundary 
+           withcolor \MPcolor{foreground:1}
+           withpen pencircle scaled 6bp;
+
+       fill right_boundary withcolor \MPcolor{background:0};
+     fi
+
+     newpath header_boundary;
+     header_boundary := bottomboundary Field[Text][Header] shortened (4*random_amount);
+     draw header_boundary shifted (0,-random_amount)
+          complexslides_fuzzied_line random_amount
+           withcolor \MPcolor{foreground:1}
+           withpen pencircle scaled 6bp;
 
   fi;
   endgroup;

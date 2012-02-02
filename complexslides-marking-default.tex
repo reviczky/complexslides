@@ -1,30 +1,8 @@
 \startmodule complexslides-marking-default
 \unprotect
 
-\usemodule[visualcounter]
-\definevisualcounter[page][countdown][counter=userpage, palette=colorpalette]
-
-\definepalet
-  [colorpalette]
-  [active=foreground:2,
-     past=foreground:1,
-   future=base:0] 
-
-\setupfootertexts[\getvariable{talk}{shorttitle}]
-\setupfootertexts[\getvariable{talk}{shortauthor}][\usevisualcounter{page}]
-
-\setupbackgrounds[footer][text][frame=off,background={complexslides:footer:frame}]
-\defineoverlay[complexslides:footer:frame][\useMPgraphic{complexslides:footer:frame}]
-
-\startuseMPgraphic{complexslides:footer:frame}
-   save p;  path p;
-   p := (0,OverlayHeight) -- (OverlayWidth if "\currentmakeup" = "" : /2 fi, OverlayHeight);
-   for i := 1 upto 5 :
-    draw p randomized 2bp
-      withcolor \MPcolor{foreground:1};
-    setbounds currentpicture to OverlayBox ;
-   endfor
-\stopuseMPgraphic
+\setupfootertexts[]
+\setupfootertexts[][]
 
 \protect
 \stopmodule
