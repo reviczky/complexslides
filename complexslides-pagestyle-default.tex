@@ -43,6 +43,28 @@
      \c!align=\v!middle,
    ] 
 
+\definemakeup
+  [slide]
+  [
+     \c!doublesided=\v!no,
+     \c!page=\v!yes,
+     \c!top=\vss,
+     \c!bottom=\vss,
+     \c!bottomstate=\v!normal,
+     \c!topstate=\v!normal,
+     \c!textstate=\v!normal,
+     \c!headerstate=\v!stop,
+     \c!footerstate=\v!stop,
+     \c!pagestate=\v!stop,
+     \c!style={\switchtobodyfont[24pt]\setupinterlinespace},
+     \c!color=foreground:2,
+     \c!align=\v!middle,
+   ] 
+
+\definemakeup
+  [titlepage]
+  [slide]
+  [\c!style=]
 
 \startuseMPgraphic {complexslides:pagebackground}
   StartPage;
@@ -51,8 +73,8 @@
   newpath page_body;
   page_body :=
       if "\currentmakeup" = "" :
-          unitsquare xyscaled (bbwidth Page, 
-                     bbheight Page -  \the\dimexpr\topspace+\headerheight+(\headerdistance/4)\relax)
+          unitsquare xyscaled (PaperWidth,
+                     PaperHeight -  \the\dimexpr\topspace+\headerheight+(\headerdistance/4)\relax)
       else : Page 
       fi ;
   fill page_body superellipsed 0.98 withcolor \MPcolor{background:0};

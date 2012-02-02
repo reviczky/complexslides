@@ -1,0 +1,112 @@
+\startmodule complexslides-stylestyle-fuzzy
+
+\unprotect
+
+\setupheader[\c!style=\bf\ssc, \c!color=base:0, \c!align=\v!middle]
+\setupfooter[\c!style=small]
+
+\setupheadertexts[{\getmarking[section]}]
+
+\setuphead[subject,section]
+          [\c!style=\bf\ssc,
+           \c!color=foreground:1,
+       \c!placehead=\v!empty,
+          \c!number=\v!no,
+            \c!page=\v!yes,
+          \c!before=,
+           \c!after={\blank[\v!small]},
+          ]
+
+\definehead
+  [slide]
+  [section]
+  [
+    \c!coupling=\v!section,
+    \c!default=\v!section,
+  ]
+
+\definemakeup
+  [slide]
+  [
+     \c!doublesided=\v!no,
+     \c!page=\v!yes,
+     \c!top=\vss,
+     \c!bottom=\vss,
+     \c!bottomstate=\v!normal,
+     \c!topstate=\v!normal,
+     \c!textstate=\v!normal,
+     \c!headerstate=\v!stop,
+     \c!footerstate=\v!stop,
+     \c!pagestate=\v!stop,
+     \c!style={\switchtobodyfont[24pt]\setupinterlinespace},
+     \c!color=foreground:2,
+     \c!align=\v!middle,
+   ] 
+
+\definemakeup
+  [titlepage]
+  [slide]
+  [\c!style=]
+
+\startMPdefinitions
+  primarydef p complexslides_fuzzied_line s =
+     begingroup ;
+     point 0 along p 
+        for i = 0.1 step 0.1 until 0.9 :
+           .. (point i along p) randomized s
+        endfor
+           .. (point 1 along p)
+     endgroup
+  enddef;
+  primarydef p complexslides_fuzzied s =
+     begingroup ;
+       (rightboundary  p complexslides_fuzzied_line s)
+        -- (topboundary    p complexslides_fuzzied_line s)
+        -- (leftboundary   p complexslides_fuzzied_line s)
+        -- (bottomboundary p complexslides_fuzzied_line s)
+        -- cycle
+     endgroup
+  enddef;
+\stopMPdefinitions
+
+\startuseMPgraphic {complexslides:pagebackground}
+  StartPage;
+  begingroup;
+  fill Page withcolor \MPcolor{foreground:0};
+  newnumeric random_amount; random_amount := 0.75EmWidth;
+  newpath page_boundary; 
+  if "\currentmakeup" = "" :
+      page_boundary := (llcorner Field[Text][Footer]
+                     -- ulcorner Field[Text][Header]
+                     -- urcorner Field[Text][Header]
+                     -- lrcorner Field[Text][Footer]
+                     -- cycle)
+                     enlarged (random_amount/2) ;
+  else :
+      page_boundary := Field[Text][Text] enlarged (-random_amount);
+  fi;
+
+  page_boundary := page_boundary complexslides_fuzzied random_amount;
+
+  fill page_boundary withcolor \MPcolor{background:0};
+
+  draw page_boundary withcolor \MPcolor{foreground:1} 
+       withpen pencircle scaled 6bp;
+
+  if "\currentmakeup" = "" :
+     newpath toc_boundary;
+
+
+  fi;
+  endgroup;
+  StopPage;
+\stopuseMPgraphic
+
+\defineoverlay[complexslides:pagebackground][\useMPgraphic{complexslides:pagebackground}]
+
+\setupbackgrounds[\v!page][\c!background={complexslides:pagebackground}]
+
+
+\protect
+
+\stopmodule

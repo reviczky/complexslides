@@ -9,8 +9,9 @@
 \definestyle[locationstyle][style=\tf, color=]
 
 \startsetups[complexslides:titlepage]
-  \startstandardmakeup
+  \starttitlepagemakeup
       \blank[force,2*big]
+      \vfill
     \startalignment[middle]
       \titlestyle{\getvariable{talk}{title}}
       \blank[big]
@@ -21,11 +22,11 @@
       \normal{\getvariable{talk}{thanks}}
       \vfill
       \locationstyle{\getvariable{talk}{location}}
-      \blank[big]
+      \blank[3*big]
     \stopalignment
     \setupinteraction
       [title=\getvariable{talk}{title}, subtitle=\getvariable{talk}{location}, author=\getvariable{talk}{author}]
-  \stopstandardmakeup
+  \stoptitlepagemakeup
 \stopsetups
 
 \protect
