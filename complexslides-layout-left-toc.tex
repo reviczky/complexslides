@@ -1,5 +1,5 @@
-\startmodule complexslides-layout-right-toc
-\definelayout[complexslides:layout:right-toc]
+\startmodule complexslides-layout-left-toc
+\definelayout[complexslides:layout:left-toc]
              [   topspace=\lineheight,
                       top=0cm,
               topdistance=\lineheight,
@@ -11,13 +11,13 @@
               bottomspace=1\lineheight,
                    bottom=\lineheight,
            bottomdistance=0cm,
-                backspace=5mm,
-               leftmargin=0cm,
-       leftmargindistance=2mm,
+                backspace=0.22\paperwidth,
+               leftmargin=\the\dimexpr0.22\paperwidth-1.2cm\relax,
+       leftmargindistance=8mm,
                     width=middle,
-                 cutspace=0.22\paperwidth,
-              rightmargin=\the\dimexpr0.22\paperwidth-1.2cm\relax,
-      rightmargindistance=8mm,
+                 cutspace=5mm,
+              rightmargin=0cm,
+      rightmargindistance=2mm,
                    % grid=on,
            columndistance=5pt,
                   columns=6,
@@ -28,5 +28,5 @@
 \definelayout[titlepage][page]
 
 \setuppapersize [S4]
-\setuplayout    [complexslides:layout:right-toc]
+\setuplayout    [complexslides:layout:left-toc]
 \stopmodule

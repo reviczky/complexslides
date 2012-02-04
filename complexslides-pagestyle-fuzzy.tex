@@ -7,6 +7,8 @@
 
 \setupheadertexts[{\getmarking[section]}]
 
+\setuptexttexts[margin][\vbox{\placelist[slide]}][\vbox{\placelist[slide]}]
+
 \setuphead[subject,section]
           [\c!style=\bf\ssc,
            \c!color=foreground:1,
@@ -23,6 +25,24 @@
   [
     \c!coupling=\v!section,
     \c!default=\v!section,
+  ]
+
+\setuphead
+  [chapter,title]
+  [
+    \c!placehead=\v!empty,
+    \c!page=v!yes,
+  ]
+
+\definehead
+  [topic]
+  [title]
+
+\setuplist
+  [topic]
+  [
+    \c!pagenumber=\v!no,
+     \c!expansion=\v!yes,
   ]
 
 \definemakeup
@@ -49,21 +69,22 @@
   [\c!style=]
 
 \startMPdefinitions
-  primarydef p complexslides_fuzzied_line s =
+  vardef complexslides_fuzzied_line(expr pathname, random, stepsize) =
      begingroup ;
-     point 0 along p 
-        for i = 0.1 step 0.1 until 0.9 :
-           .. (point i along p) randomized s
+     point 0 along pathname
+        for i = stepsize step stepsize until (1-stepsize) :
+           .. (point i along pathname) randomized random
         endfor
-           .. (point 1 along p)
+           .. (point 1 along pathname)
      endgroup
   enddef;
-  primarydef p complexslides_fuzzied s =
+
+  vardef complexslides_fuzzied(expr pathname, random, stepsize) =
      begingroup ;
-       (rightboundary  p complexslides_fuzzied_line s)
-        -- (topboundary    p complexslides_fuzzied_line s)
-        -- (leftboundary   p complexslides_fuzzied_line s)
-        -- (bottomboundary p complexslides_fuzzied_line s)
+           complexslides_fuzzied_line(rightboundary  pathname, random, ypart paired(stepsize))
+        -- complexslides_fuzzied_line(topboundary    pathname, random, xpart paired(stepsize))
+        -- complexslides_fuzzied_line(leftboundary   pathname, random, ypart paired(stepsize))
+        -- complexslides_fuzzied_line(bottomboundary pathname, random, xpart paired(stepsize))
         -- cycle
      endgroup
   enddef;
@@ -86,7 +107,7 @@
       page_boundary := Field[Text][Text] enlarged (-random_amount);
   fi;
 
-  page_boundary := page_boundary complexslides_fuzzied random_amount;
+  page_boundary := complexslides_fuzzied(page_boundary, random_amount, 0.1);
 
   fill page_boundary withcolor \MPcolor{background:0};
 
@@ -100,16 +121,17 @@
                      -- urcorner Field[LeftMargin][Header]
                      -- lrcorner Field[LeftMargin][Footer]
                      -- cycle)
-                     enlarged (random_amount/2) 
-                     complexslides_fuzzied random_amount ;
+                     enlarged (random_amount/2);
+      left_boundary  := complexslides_fuzzied(left_boundary, random_amount, (0.2, 0.1));
 
       right_boundary := (llcorner Field[RightMargin][Footer]
                       -- ulcorner Field[RightMargin][Header]
                       -- urcorner Field[RightMargin][Header]
                       -- lrcorner Field[RightMargin][Footer]
                       -- cycle)
-                      enlarged (random_amount/2) 
-                     complexslides_fuzzied random_amount ;
+                      enlarged (random_amount/2);
+
+      right_boundary := complexslides_fuzzied(right_boundary, random_amount, (0.2, 0.1));
       
      if LeftMarginWidth > 0 :
         draw left_boundary 
@@ -129,8 +151,8 @@
 
      newpath header_boundary;
      header_boundary := bottomboundary Field[Text][Header] shortened (4*random_amount);
-     draw header_boundary shifted (0,-random_amount)
-          complexslides_fuzzied_line random_amount
+     draw complexslides_fuzzied_line(header_boundary shifted (0,-random_amount),
+                                     random_amount, 0.1)
            withcolor \MPcolor{foreground:1}
            withpen pencircle scaled 6bp;
 
