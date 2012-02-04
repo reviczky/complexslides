@@ -2,10 +2,31 @@
 
 \unprotect
 
-\setupheader[\c!style=\bf\ssc, \c!color=base:0, \c!align=\v!middle]
+\setupheader[\c!style=\bf\ssc, \c!before=\vss, \c!after=\vss, \c!color=base:0]
 \setupfooter[\c!style=small]
+\setuptext  [\c!style=bold, \c!color=base:0]
 
 \setupheadertexts[{\getmarking[section]}]
+
+\ifdim\layoutparameter\c!rightmargin > 2pt
+    \setuptexttexts[margin][][\setups{complexslides:toc}]
+\fi
+
+\ifdim\layoutparameter\c!leftmargin > 2pt
+    \setuptexttexts[margin][\setups{complexslides:toc}][]
+\fi
+
+\defineframed
+  [complexslides:toc]
+  [
+    \c!frame=\v!on,
+    \c!align=\v!middle,
+  ]
+
+\startsetups complexslides:toc
+  \getvalue{complexslides:toc}
+      { Topics }
+\stopsetups
 
 \setuphead[subject,section]
           [\c!style=\bf\ssc,
@@ -70,14 +91,18 @@
   StartPage;
   % fill Page withcolor \MPcolor{foreground:1};
   circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1});
-  newpath page_body;
-  page_body :=
-      if "\currentmakeup" = "" :
-          unitsquare xyscaled (PaperWidth,
-                     PaperHeight -  \the\dimexpr\topspace+\headerheight+(\headerdistance/4)\relax)
-      else : Page 
-      fi ;
-  fill page_body superellipsed 0.98 withcolor \MPcolor{background:0};
+  newpath page_boundary; 
+  if "\currentmakeup" = "" :
+      page_boundary :=  complexslides_lccorner Field[LeftMarginSeparator][Bottom]
+                     -- center Field[LeftMarginSeparator][HeaderSeparator]
+                     -- center Field[RightMarginSeparator][HeaderSeparator]
+                     -- complexslides_lccorner Field[RightMarginSeparator][Bottom]
+                     -- cycle ;
+  else :
+      page_boundary := Field[Text][Text];
+  fi;
+
+  fill page_boundary superellipsed 0.98 withcolor \MPcolor{background:0};
   StopPage;
 \stopuseMPgraphic
 

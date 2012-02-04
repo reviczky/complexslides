@@ -35,6 +35,17 @@
 \def\complexslides_load_extra_configuration#extra%
       {\usemodule[complexslides-extras-#extra]}
 
+\startMPdefinitions
+  vardef complexslides_lccorner primary p = 
+      0.5[llcorner p, lrcorner p]
+  enddef;
+
+  vardef complexslides_uccorner primary p = 
+      0.5[ulcorner p, urcorner p]
+  enddef;
+\stopMPdefinitions
+
+
 \complexslides_load_configuration {fontscheme}
 \complexslides_load_configuration {colorscheme}
 \complexslides_load_configuration {layout}
