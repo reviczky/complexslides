@@ -20,7 +20,7 @@
   [complexslides:toc]
   [
     \c!frame=\v!on,
-    \c!align=\v!middle,
+    \c!frame=\v!on,
   ]
 
 \startsetups complexslides:toc
@@ -62,36 +62,18 @@
      \c!style={\switchtobodyfont[24pt]\setupinterlinespace},
      \c!color=foreground:2,
      \c!align=\v!middle,
-   ] 
-
-\definemakeup
-  [slide]
-  [
-     \c!doublesided=\v!no,
-     \c!page=\v!yes,
-     \c!top=\vss,
-     \c!bottom=\vss,
-     \c!bottomstate=\v!normal,
-     \c!topstate=\v!normal,
-     \c!textstate=\v!normal,
-     \c!headerstate=\v!stop,
-     \c!footerstate=\v!stop,
-     \c!pagestate=\v!stop,
-     \c!style={\switchtobodyfont[24pt]\setupinterlinespace},
-     \c!color=foreground:2,
-     \c!align=\v!middle,
-   ] 
+   ]
 
 \definemakeup
   [titlepage]
   [slide]
   [\c!style=]
 
-\startuseMPgraphic {complexslides:pagebackground}
+\startreusableMPgraphic {complexslides:pagebackground}
   StartPage;
   % fill Page withcolor \MPcolor{foreground:1};
-  circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1});
-  newpath page_boundary; 
+  % circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1});
+  newpath page_boundary;
   if "\currentmakeup" = "" :
       page_boundary :=  complexslides_lccorner Field[LeftMarginSeparator][Bottom]
                      -- center Field[LeftMarginSeparator][HeaderSeparator]
@@ -104,12 +86,36 @@
 
   fill page_boundary superellipsed 0.98 withcolor \MPcolor{background:0};
   StopPage;
-\stopuseMPgraphic
+\stopreusableMPgraphic
+
+\startreusableMPgraphic {complexslides:pagebackground:logo} {color}
+  drawoptions (withcolor \MPvar{color});
+  input db-logo;
+\stopreusableMPgraphic
+
+\startreusableMPgraphic {complexslides:pagebackground:identifier} {color}
+  drawoptions (withcolor \MPvar{color});
+  input db-identifier;
+\stopreusableMPgraphic
 
 \defineoverlay[complexslides:pagebackground][\useMPgraphic{complexslides:pagebackground}]
 
-\setupbackgrounds[\v!page][\c!background={complexslides:pagebackground}]
+% FIXME - image as var and location !!!
+\definelayer[complexslides:pagebackground:image:bridge1][x=0mm,y=0mm,width=\paperwidth,height=\paperheight,preset=righttop,state=start]
+\setlayer[complexslides:pagebackground:image:bridge1][hoffset=0mm,voffset=0mm]{\externalfigure[http://staging.integration.chris.dweb.ies.gto.intranet.db.com/banner/10ee9zp.jpg][width=\paperwidth]}
 
+% .5 size logo: 7mm,7mm
+\definelayer[complexslides:pagebackground:logo:invers][x=0mm,y=0mm,width=\paperwidth,height=\paperheight,preset=righttop,state=start]
+\setlayer[complexslides:pagebackground:logo:invers][hoffset=14mm,voffset=14mm]{\framed[frame=off,offset=0mm,strut=no,width=14mm,height=14mm]{\scale[width=14mm,height=14mm]{\useMPgraphic{complexslides:pagebackground:logo}{color=background:0}}}}
+
+\definelayer[complexslides:pagebackground:identifier][x=0mm,y=0mm,width=\paperwidth,height=\paperheight,preset=lefttop,state=start]
+\setlayer[complexslides:pagebackground:identifier][hoffset=7mm,voffset=14mm]{\scale[height=10mm]{\useMPgraphic{complexslides:pagebackground:identifier}{color=background:0}}}
+
+\definelayer[complexslides:pagebackground:logo][x=0mm,y=0mm,width=\paperwidth,height=\paperheight,preset=righttop,state=continue]
+\setlayer[complexslides:pagebackground:logo][hoffset=14mm,voffset=14mm]{\framed[frame=off,offset=0mm,strut=no,width=14mm,height=14mm]{\scale[width=14mm,height=14mm]{\useMPgraphic{complexslides:pagebackground:logo}{color=foreground:1}}}}
+
+%\setupbackgrounds[\v!page][\c!background={complexslides:pagebackground}]
+\setupbackgrounds[\v!page][\c!background={complexslides:pagebackground:image:bridge1,complexslides:pagebackground:identifier,complexslides:pagebackground:logo:invers,complexslides:pagebackground:logo}]
 
 \protect
 

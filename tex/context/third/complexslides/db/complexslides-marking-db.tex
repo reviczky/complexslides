@@ -1,8 +1,26 @@
 \startmodule complexslides-marking-db
 \unprotect
 
-\setupfootertexts[]
-\setupfootertexts[][]
+% http://www.linotype.com/681223/UniversDeutscheBank-family.html
+\startreusableMPgraphic {identifier} {color}
+  drawoptions (withcolor \MPvar{color});
+  input db-identifier;
+\stopreusableMPgraphic
+
+\setupfootertexts[\setups{event}]
+\setupfootertexts[\setups{identifier}][\setups{numbering}]
+\startsetups[identifier] \framed[frame=on,width=fit]{\scale[height=10mm]{\reuseMPgraphic{identifier}{color=dbblue}}} \stopsetups
+\startsetups[event] \startframedtext[middle][frame=on,width=fit,offset=0mm,strut=no] \getvariable{talk}{shortauthor} \\ \getvariable{talk}{shorttitle} \stopframedtext \stopsetups
+\startsetups[numbering] \startframedtext[right][frame=on,width=fit,offset=0mm,strut=no] \currentpage \stopframedtext \stopsetups
+
+\setupbackgrounds[footer][text][frame=off,background={complexslides:footer:frame}]
+\defineoverlay[complexslides:footer:frame][\useMPgraphic{complexslides:footer:frame}]
+
+\startreusableMPgraphic {complexslides:footer:frame}
+   save p; path p;
+   p := (0,OverlayHeight) -- (OverlayWidth,OverlayHeight);
+   draw p withcolor \MPcolor{foreground:1};
+\stopreusableMPgraphic
 
 \protect
 \stopmodule
