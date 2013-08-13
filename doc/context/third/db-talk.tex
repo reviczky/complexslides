@@ -1,0 +1,114 @@
+% This file is a solution template for:
+
+% - Giving a talk on some subject.
+% - The talk is between 15min and 45min long.
+
+% This is adapted from the example by Till Tantau <tantau@users.sourceforge.net>
+% included as part of the beamer package in LaTeX
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, the author grants the extra permission to freely
+% copy and  modify this file as you see fit and even to delete this
+% copyright notice. 
+
+\usemodule
+  [complexslides]
+  [
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Various configuration options. %%
+    %% If an option is not specified, %%
+    %% `default` value is used.       %%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    fontscheme=db,
+    colorscheme=db,
+    layout=db,
+    pagestyle=db,
+    setup=db,
+    itemize=db,
+    floats=db,
+    marking=db,
+    titlepage=db,
+    extras={framedtext, % provides \startalert ... \stopaltert
+                        % and \startresult ... \stopresult environment
+           },
+  ]
+
+% In order to use sample images distributed with ConTeXt
+\setupexternalfigures[location={local,global,default}] 
+
+\starttext
+
+\setvariables
+  [talk]
+  [
+    title={An introduction to making slides using complexslides},
+    shorttitle={Making slides using complexslides},
+    author={Adam Reviczky},
+    shortauthor={A.~Reviczky},
+    institute={Deutsche Bank},
+    thanks={Acknowledgements: ConTeXt mailing list},
+    location={London (\date)},
+  ]
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per slide. So there should be between about
+%   15 and 30 slides, all told.
+
+
+\startslide[title={Make Titles Informative}]
+  % - A title should summarize the slide in an understandable fashion
+  %   for anyone how does not follow everything on the slide itself.
+
+  \startitemize
+    \item Use bullets points when appropriate.
+    \item Use pictures when possible
+    \item Do not put too much information on one slide
+  \stopitemize
+\stopslide
+
+\startslide[title={A Dutch Cow}]
+  % To include a full slide picute.
+  \externalfigure[cow]
+\stopslide
+
+\startslidemakeup
+  An important point
+\stopslidemakeup
+
+\startslide[title={The main result}]
+  \startalert
+    Problem Statement and why it is difficult. Some more text to just fill up
+    space to show how the environment looks with a multi-line text.
+  \stopalert
+
+  \startresult
+    Main result and its cool features. Some more text to just fill up
+    space to show how the environment looks with a multi-line text.
+  \stopresult
+\stopslide
+
+\startslide[title={Summary}]
+
+  \startitemize
+    \item The {\em first main message} of your talk in one or two lines.
+    \item The {\em second main message} of your talk in one or two lines.
+    \item Perhaps a {\em third message}, but not more than that.
+  \stopitemize
+\stopslide
+
+\startslidemakeup
+  Thank you
+\stopslidemakeup
+
+\stoptext

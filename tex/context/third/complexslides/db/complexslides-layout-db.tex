@@ -1,0 +1,32 @@
+\startmodule complexslides-layout-db
+\definelayout[S4]
+             [   topspace=0.5\lineheight,
+                      top=1\lineheight,
+              topdistance=0cm,
+                   header=1.5\lineheight,
+           headerdistance=\lineheight,
+                   height=middle,
+           footerdistance=0.75\lineheight,
+                   footer=\lineheight,
+              bottomspace=0.5\lineheight,
+                   bottom=0.5\lineheight,
+           bottomdistance=0cm,
+                backspace=0.5in,
+               leftmargin=1mm,
+       leftmargindistance=1in,
+                    width=middle,
+                 cutspace=0.5in,
+              rightmargin=1mm,
+      rightmargindistance=1in,
+                   % grid=on,
+           columndistance=5pt,
+                  columns=6,
+ ]
+
+% used by makeup pages
+\definelayout[slide][page]
+\definelayout[titlepage][page]
+
+\setuppapersize [S4]
+\setuplayout    [S4]
+\stopmodule

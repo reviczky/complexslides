@@ -1,0 +1,33 @@
+\startmodule complexslides-titlepage-db
+\unprotect
+
+% Style for title page
+\definestyle[titlestyle][style=\bf\ssd, color=foreground:1]
+\definestyle[institutestyle][style=\tfa, color=foreground:1]
+\definestyle[authorstyle][style=\ssb, color=foreground:2]
+\definestyle[datestyle][style=\tf, color=]
+\definestyle[locationstyle][style=\tf, color=]
+
+\startsetups[complexslides:titlepage]
+  \starttitlepagemakeup
+      \blank[force,2*big]
+      \vfill
+    \startalignment[middle]
+      \titlestyle{\getvariable{talk}{title}}
+      \blank[big]
+      \authorstyle{\getvariable{talk}{author}}
+      \blank[small]
+      \institutestyle{\getvariable{talk}{institute}}
+      \blank[big]
+      \normal{\getvariable{talk}{thanks}}
+      \vfill
+      \locationstyle{\getvariable{talk}{location}}
+      \blank[3*big]
+    \stopalignment
+    \setupinteraction
+      [title=\getvariable{talk}{title}, subtitle=\getvariable{talk}{location}, author=\getvariable{talk}{author}]
+  \stoptitlepagemakeup
+\stopsetups
+
+\protect
+\stopmodule

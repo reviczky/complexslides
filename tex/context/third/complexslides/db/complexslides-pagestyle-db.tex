@@ -1,0 +1,116 @@
+\startmodule complexslides-stylestyle-db
+
+\unprotect
+
+\setupheader[\c!style=\bf\ssc, \c!before=\vss, \c!after=\vss, \c!color=base:0]
+\setupfooter[\c!style=small]
+\setuptext  [\c!style=bold, \c!color=base:0]
+
+\setupheadertexts[{\getmarking[section]}]
+
+\ifdim\layoutparameter\c!rightmargin > 2pt
+    \setuptexttexts[margin][][\setups{complexslides:toc}]
+\fi
+
+\ifdim\layoutparameter\c!leftmargin > 2pt
+    \setuptexttexts[margin][\setups{complexslides:toc}][]
+\fi
+
+\defineframed
+  [complexslides:toc]
+  [
+    \c!frame=\v!on,
+    \c!align=\v!middle,
+  ]
+
+\startsetups complexslides:toc
+  \getvalue{complexslides:toc}
+      { Topics }
+\stopsetups
+
+\setuphead[subject,section]
+          [\c!style=\bf\ssc,
+           \c!color=foreground:1,
+       \c!placehead=\v!empty,
+          \c!number=\v!no,
+            \c!page=\v!yes,
+          \c!before=,
+           \c!after={\blank[\v!small]},
+          ]
+
+\definehead
+  [slide]
+  [section]
+  [
+    \c!coupling=\v!section,
+    \c!default=\v!section,
+  ]
+
+\definemakeup
+  [slide]
+  [
+     \c!doublesided=\v!no,
+     \c!page=\v!yes,
+     \c!top=\vss,
+     \c!bottom=\vss,
+     \c!bottomstate=\v!normal,
+     \c!topstate=\v!normal,
+     \c!textstate=\v!normal,
+     \c!headerstate=\v!stop,
+     \c!footerstate=\v!stop,
+     \c!pagestate=\v!stop,
+     \c!style={\switchtobodyfont[24pt]\setupinterlinespace},
+     \c!color=foreground:2,
+     \c!align=\v!middle,
+   ] 
+
+\definemakeup
+  [slide]
+  [
+     \c!doublesided=\v!no,
+     \c!page=\v!yes,
+     \c!top=\vss,
+     \c!bottom=\vss,
+     \c!bottomstate=\v!normal,
+     \c!topstate=\v!normal,
+     \c!textstate=\v!normal,
+     \c!headerstate=\v!stop,
+     \c!footerstate=\v!stop,
+     \c!pagestate=\v!stop,
+     \c!style={\switchtobodyfont[24pt]\setupinterlinespace},
+     \c!color=foreground:2,
+     \c!align=\v!middle,
+   ] 
+
+\definemakeup
+  [titlepage]
+  [slide]
+  [\c!style=]
+
+\startuseMPgraphic {complexslides:pagebackground}
+  StartPage;
+  % fill Page withcolor \MPcolor{foreground:1};
+  circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1});
+  newpath page_boundary; 
+  if "\currentmakeup" = "" :
+      page_boundary :=  complexslides_lccorner Field[LeftMarginSeparator][Bottom]
+                     -- center Field[LeftMarginSeparator][HeaderSeparator]
+                     -- center Field[RightMarginSeparator][HeaderSeparator]
+                     -- complexslides_lccorner Field[RightMarginSeparator][Bottom]
+                     -- cycle ;
+  else :
+      page_boundary := Field[Text][Text];
+  fi;
+
+  fill page_boundary superellipsed 0.98 withcolor \MPcolor{background:0};
+  StopPage;
+\stopuseMPgraphic
+
+\defineoverlay[complexslides:pagebackground][\useMPgraphic{complexslides:pagebackground}]
+
+\setupbackgrounds[\v!page][\c!background={complexslides:pagebackground}]
+
+
+\protect
+
+\stopmodule
