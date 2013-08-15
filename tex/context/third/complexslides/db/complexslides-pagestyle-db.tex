@@ -88,15 +88,15 @@
   StopPage;
 \stopreusableMPgraphic
 
-\startreusableMPgraphic {complexslides:pagebackground:logo} {color}
+\startuniqueMPgraphic{complexslides:pagebackground:logo}{color}
   drawoptions (withcolor \MPvar{color});
   input db-logo;
-\stopreusableMPgraphic
+\stopuniqueMPgraphic
 
-\startreusableMPgraphic {complexslides:pagebackground:identifier} {color}
+\startuniqueMPgraphic{complexslides:pagebackground:identifier}{color}
   drawoptions (withcolor \MPvar{color});
   input db-identifier;
-\stopreusableMPgraphic
+\stopuniqueMPgraphic
 
 \defineoverlay[complexslides:pagebackground][\useMPgraphic{complexslides:pagebackground}]
 
