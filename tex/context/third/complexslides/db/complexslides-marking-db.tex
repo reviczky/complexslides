@@ -10,7 +10,7 @@
 \setupfootertexts[\setups{event}]
 \setupfootertexts[\setups{identifier}][\setups{numbering}]
 \startsetups[identifier] \framed[frame=on,width=fit]{\scale[height=10mm]{\useMPgraphic{complexslides:marking:identifier}{color=dbblue}}} \stopsetups
-\startsetups[event] \startframedtext[middle][frame=on,width=fit,offset=0mm,strut=no] \getvariable{talk}{shortauthor} \\ \getvariable{talk}{shorttitle} \stopframedtext \stopsetups
+\startsetups[event] \startframedtext[middle][frame=on,width=fit,offset=0mm,strut=no] \getvariable{talk}{author} \\ \getvariable{talk}{shorttitle} / \getvariable{talk}{location} \stopframedtext \stopsetups
 \startsetups[numbering] \startframedtext[right][frame=on,width=fit,offset=0mm,strut=no] \currentpage \stopframedtext \stopsetups
 
 \setupbackgrounds[footer][text][frame=off,background={complexslides:footer:frame}]

@@ -33,9 +33,10 @@
            \c!color=foreground:1,
        \c!placehead=\v!empty,
           \c!number=\v!no,
-            \c!page=\v!yes,
+            \c!page=\v!yes, % topspace?
           \c!before=,
-           \c!after={\blank[\v!small]},
+%           \c!after={\blank[\v!small]},
+           \c!after=,
           ]
 
 \definehead
@@ -102,7 +103,7 @@
 
 % FIXME - image as var and location !!!
 \definelayer[complexslides:pagebackground:image:bridge1][x=0mm,y=0mm,width=\paperwidth,height=\paperheight,preset=righttop,state=start]
-\setlayer[complexslides:pagebackground:image:bridge1][hoffset=0mm,voffset=0mm]{\externalfigure[http://staging.integration.chris.dweb.ies.gto.intranet.db.com/banner/10ee9zp.jpg][width=\paperwidth]}
+\setlayer[complexslides:pagebackground:image:bridge1][hoffset=0mm,voffset=0mm]{\externalfigure[awm][width=\paperwidth]}
 
 % .5 size logo: 7mm,7mm
 \definelayer[complexslides:pagebackground:logo:invers][x=0mm,y=0mm,width=\paperwidth,height=\paperheight,preset=righttop,state=start]
