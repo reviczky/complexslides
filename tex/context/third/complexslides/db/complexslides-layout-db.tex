@@ -1,4 +1,15 @@
 \startmodule complexslides-layout-db
+% \pdfminorversion=7
+\enabledirectives[fonts.embedall]
+\enabledirectives[system.synctex]
+
+% \setupbackend
+%   [
+%    export=export.xml,
+%     xhtml=export.xhtml,
+%       css=export.css,
+%   ]
+
 \definelayout[S6]
              [   topspace=0.5\lineheight,
                       top=1\lineheight,
@@ -31,4 +42,6 @@
 \setuplayout    [S6]
 
 \showframe
+
+\mainlanguage[uk]
 \stopmodule

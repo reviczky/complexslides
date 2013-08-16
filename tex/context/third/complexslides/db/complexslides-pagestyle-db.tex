@@ -1,4 +1,4 @@
-\startmodule complexslides-stylestyle-db
+\startmodule complexslides-pagestyle-db
 
 \unprotect
 
@@ -110,7 +110,8 @@
 \setlayer[complexslides:pagebackground:logo:invers][hoffset=14mm,voffset=14mm]{\framed[frame=off,offset=0mm,strut=no,width=14mm,height=14mm]{\scale[width=14mm,height=14mm]{\useMPgraphic{complexslides:pagebackground:logo}{color=background:0}}}}
 
 \definelayer[complexslides:pagebackground:identifier][x=0mm,y=0mm,width=\paperwidth,height=\paperheight,preset=lefttop,state=start]
-\setlayer[complexslides:pagebackground:identifier][hoffset=7mm,voffset=14mm]{\scale[height=10mm]{\useMPgraphic{complexslides:pagebackground:identifier}{color=background:0}}}
+% \setlayer[complexslides:pagebackground:identifier][hoffset=7mm,voffset=14mm]{\scale[height=10mm]{\useMPgraphic{complexslides:pagebackground:identifier}{color=background:0}}}
+\setlayer[complexslides:pagebackground:identifier][hoffset=7mm,voffset=14mm]{\startframedtext[frame=on] \switchtobodyfont[13.5pt]\color[foreground:4]{Deutsche Bank}\\\color[brightblue]{Group Technology}}\scale[height=10mm]{\useMPgraphic{complexslides:pagebackground:identifier}{color=background:0} \stopframedtext}
 
 \definelayer[complexslides:pagebackground:logo][x=0mm,y=0mm,width=\paperwidth,height=\paperheight,preset=righttop,state=continue]
 \setlayer[complexslides:pagebackground:logo][hoffset=14mm,voffset=14mm]{\framed[frame=off,offset=0mm,strut=no,width=14mm,height=14mm]{\scale[width=14mm,height=14mm]{\useMPgraphic{complexslides:pagebackground:logo}{color=foreground:1}}}}

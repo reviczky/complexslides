@@ -2,7 +2,18 @@
 \definecolor[brightdarkblue][c=1,m=.76,y=.12,k=.68]
 \definecolor[brightmidgray][c=.34,m=.14,y=.11,k=.32]
 \definecolor[brightgreen][c=.59,m=0,y=1,k=0]
-\definecolor[dbblue][c=1,m=.8,y=0,k=.1]
+
+% \definecolor[dbblue][c=1,m=.8,y=0,k=.1]
+
+%%% Deutsche Blue
+\definecolor
+  [PantoneZeroSevenTwo]
+  [c=1,m=.8,y=0,k=.1]
+\definespotcolor
+  [dbblue]
+  [PantoneZeroSevenTwo]
+  [p=1,e=PANTONE 072 C]
+
 \definecolor[brightblue][c=.85,m=.21,y=0,k=0]
 \definecolor[brightpurple][c=.82,m=1,y=0,k=0]
 \definecolor[brightpink][c=.01,m=.92,y=.01,k=0]
@@ -12,6 +23,7 @@
 \definecolor  [foreground:1]  [dbblue]
 \definecolor  [foreground:2]  [brightred]
 \definecolor  [foreground:3]  [g=0.5,b=0,r=0]
+\definecolor  [foreground:4]  [white]
 
 \definecolor  [background:0]  [h=ffffff]
 \definecolor  [background:1]  [a=1,t=0.5,h=87cefa]
