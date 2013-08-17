@@ -1,0 +1,148 @@
+% This file is a solution template for:
+
+% - Introducing another speaker.
+% - Talk length is about 2min.
+% - Style is informal.
+
+% This is adapted from the example by Till Tantau <tantau@users.sourceforge.net>
+% included as part of the beamer package in LaTeX
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, the author grants the extra permission to freely
+% copy and  modify this file as you see fit and even to delete this
+% copyright notice. 
+
+\usemodule[complexslides][marking=progressbar,colorscheme=gnome,fontscheme=gnome,itemize=gnome,pagestyle=fuzzy]
+
+% For a short talk, you can use the \type{markdown} module
+% to create a presentation.
+%
+% \usemodule[markdown]
+%
+% The markdown module uses chapter as the top level header. Change that to
+% section.
+% 
+% \definestructurelevels
+%   [markdown]
+%   [
+%     section,
+%     subsection,
+%     subsubsection,
+%     subsubsubsection,
+%     subsubsubsubsection,
+%   ]
+
+% The markdown module does not handle all markdown features correctly.
+% If you need proper support of markdown, use \type{pandoc} to convert
+% markdown to TeX.
+
+\usemodule[filter]
+
+\defineexternalfilter
+  [markdown]
+  [filter={pandoc -f markdown -t context --number-sections -o \externalfilteroutputfile}]
+
+% In order to use sample images distributed with ConTeXt
+\setupexternalfigures[location={local,global,default}]
+
+
+\starttext
+
+% FIXME: startuseMPgraphic
+\setvariables
+  [talk]
+  [
+    title={Creating a {\switchtobodyfont[16pt]\GNOME{GNOMEVerticalTM}} logo Font \blank[2*line] Adam Reviczky},
+    shorttitle={GNOME Logo Font},
+    location={\midaligned{\hbox{\scale[lines=4]{\startMPcode input guadec-logo.mp; \stopMPcode}}}},
+  ]
+
+\startmarkdown
+# Creating a "GNOME logo" Font
+
+## Experience and achievements
+
+\switchtobodyfont[16pt]
+
+\blank[3*line]
+
+- GNOME Brand Guideline (svg/eps)
+- editing with inkscape/fontforge
+- installable otf font
+- pstoedit for Metapost
+
+\switchtobodyfont[9pt]
+
+# Fontforge magic
+
+## Concerning today's talk
+
+\startplacefigure%[location=right]
+  \framed[frame=on,rulethickness=2pt]{\scale[factor=225]{\externalfigure[fontforge]}}
+\stopplacefigure
+
+\startplacefigure%[location=right]
+  \centerbox{\framed[frame=on,rulethickness=2pt]{\scale[factor=150]{\externalfigure[charmap]}}}
+\stopplacefigure
+
+# Enumerations within \TeX
+
+## Current affiliation of Speaker
+
+\startplacefigure[location=right]
+  \framed[frame=on,rulethickness=2pt]{\scale[factor=120]{\externalfigure[gnomefoot]}}
+\stopplacefigure
+
+\typefile{gnomefoot.tex}
+
+# Enumerations within LibreOffice
+
+## Current affiliation of Speaker
+
+\startplacefigure%[location=right]
+  \framed[frame=on,rulethickness=2pt]{\scale[factor=225]{\externalfigure[LO]}}
+\stopplacefigure
+
+# Metapost Logo
+
+## Concerning today's talk
+
+\switchtobodyfont[16pt]
+
+- [http://www.tlhiv.org/mppreview/](http://www.tlhiv.org/mppreview/)
+
+\startplacefigure%[location=right]
+  \framed[frame=on,rulethickness=2pt]{\scale[factor=100]{\externalfigure[mp]}}
+\stopplacefigure
+
+\switchtobodyfont[9pt]
+
+# Information
+
+## Concerning today's talk
+
+\switchtobodyfont[16pt]
+
+\blank[2*line]
+
+- [http://gist.github.com/reviczky](http://gist.github.com/reviczky)
+- [revadam@gnome.org](mailto:revadam@gnome.org)
+
+\blank[line]
+
+- suggestions/improvements welcome
+
+\blank[2*line]
+
+\midaligned{\tfb Thanks!}
+
+\switchtobodyfont[9pt]
+
+\stopmarkdown
+
+\stoptext

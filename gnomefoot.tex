@@ -1,0 +1,18 @@
+\usemodule[simplefonts]
+\setmainfont[bitstreamverasans]
+
+\usesymbols[gnomelogo]
+\startsetups enum:gnomelevel1
+\tfa\symbol[gnomelogo][GNOMEMarkMid]
+\stopsetups
+\definesymbol[1][\setups{enum:gnomelevel1}]
+
+\startTEXpage
+Bitstream Vera
+\startitemize[joinedup]
+\startitem First \stopitem
+\startitem Second \stopitem
+\startitem Third \stopitem
+\startitem Fourth \stopitem
+\stopitemize
+\stopTEXpage
