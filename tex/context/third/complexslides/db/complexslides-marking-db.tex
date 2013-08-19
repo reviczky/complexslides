@@ -10,7 +10,7 @@
 \setupfootertexts[\setups{event}]
 \setupfootertexts[\setups{identifier}][\setups{numbering}]
 % \startsetups[identifier] \framed[frame=on,width=fit]{\scale[height=10mm]{\useMPgraphic{complexslides:marking:identifier}{color=dbblue}}} \stopsetups
-\startsetups[identifier] \startframedtext[frame=on] \switchtobodyfont[13.5pt]\color[dbblue]{Deutsche Bank}\\\color[brightblue]{Group Technology} \stopframedtext \stopsetups
+\startsetups[identifier] \startframed[frame=on,align=flushleft,width=fit]\switchtobodyfont[14pt]\setupinterlinespace[off]\color[dbblue]{Deutsche Bank}\\\color[brightblue]{Group Technology}\par\stopframed \stopsetups
 \startsetups[event] \startframedtext[middle][frame=on,width=fit,offset=0mm,strut=no] \getvariable{talk}{author} \\ \getvariable{talk}{shorttitle} / \getvariable{talk}{location} \stopframedtext \stopsetups
 \startsetups[numbering] \startframedtext[right][frame=on,width=fit,offset=0mm,strut=no] \currentpage \stopframedtext \stopsetups
 
