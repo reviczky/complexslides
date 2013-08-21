@@ -1,11 +1,8 @@
 \startmodule complexslides-colorscheme-db
-\definecolor[brightdarkblue][c=1,m=.76,y=.12,k=.68]
-\definecolor[brightmidgray][c=.34,m=.14,y=.11,k=.32]
-\definecolor[brightgreen][c=.59,m=0,y=1,k=0]
+% https://brandportal.intranet.db.com/en/content/brand_elements/colour.php
 
-% \definecolor[dbblue][c=1,m=.8,y=0,k=.1]
-
-%%% Deutsche Blue
+%%% Primary palette
+%% Deutsche Blue
 \definecolor
   [PantoneZeroSevenTwo]
   [c=1,m=.8,y=0,k=.1]
@@ -13,23 +10,270 @@
   [dbblue]
   [PantoneZeroSevenTwo]
   [p=1,e=PANTONE 072 C]
+%% Dark Blue
+\definecolor
+  [PantoneTwoEightNine]
+  [c=1,m=.76,y=.12,k=.68]
+\definespotcolor
+  [darkblue]
+  [PantoneTwoEightNine]
+  [p=1,e=PANTONE 289 C]
+\definespotcolor
+  [darkblue80]
+  [PantoneTwoEightNine]
+  [p=1,e=PANTONE 289 C,t=.8,a=1]
+\definespotcolor
+  [darkblue60]
+  [PantoneTwoEightNine]
+  [p=1,e=PANTONE 289 C,t=.6,a=1]
+\definespotcolor
+  [darkblue40]
+  [PantoneTwoEightNine]
+  [p=1,e=PANTONE 289 C,t=.4,a=1]
+\definespotcolor
+  [darkblue20]
+  [PantoneTwoEightNine]
+  [p=1,e=PANTONE 289 C,t=.2,a=1]
+%% Bright Blue
+\definecolor
+  [PantoneTwoNineTwoFive]
+  [c=.85,m=.21,y=0,k=0]
+\definespotcolor
+  [brightblue]
+  [PantoneTwoNineTwoFive]
+  [p=1,e=PANTONE 2925 C]
+\definespotcolor
+  [brightblue80]
+  [PantoneTwoNineTwoFive]
+  [p=1,e=PANTONE 2925 C,t=.8,a=1]
+\definespotcolor
+  [brightblue60]
+  [PantoneTwoNineTwoFive]
+  [p=1,e=PANTONE 2925 C,t=.6,a=1]
+\definespotcolor
+  [brightblue40]
+  [PantoneTwoNineTwoFive]
+  [p=1,e=PANTONE 2925 C,t=.4,a=1]
+\definespotcolor
+  [brightblue20]
+  [PantoneTwoNineTwoFive]
+  [p=1,e=PANTONE 2925 C,t=.2,a=1]
+%% White
+\definecolor[White][c=0,m=0,y=0,k=0]
+%% Black
+\definecolor[Black][c=0,m=0,y=0,k=1]
 
-\definecolor[brightblue][c=.85,m=.21,y=0,k=0]
-\definecolor[brightpurple][c=.82,m=1,y=0,k=0]
-\definecolor[brightpink][c=.01,m=.92,y=.01,k=0]
-\definecolor[brightred][c=0,m=.94,y=.78,k=0]
+%%% Neutral palette
+%% Warm Grey
+\definecolor
+  [PantoneWarmGrey]
+  [c=.16,m=.23,y=.23,k=.44]
+\definespotcolor
+  [warmgrey]
+  [PantoneWarmGrey]
+  [p=1,e=PANTONE Warm Grey 7]
+\definespotcolor
+  [warmgrey80]
+  [PantoneWarmGrey]
+  [p=1,e=PANTONE Warm Grey 7,t=.8,a=1]
+\definespotcolor
+  [warmgrey60]
+  [PantoneWarmGrey]
+  [p=1,e=PANTONE Warm Grey 7,t=.6,a=1]
+\definespotcolor
+  [warmgrey40]
+  [PantoneWarmGrey]
+  [p=1,e=PANTONE Warm Grey 7,t=.4,a=1]
+\definespotcolor
+  [warmgrey20]
+  [PantoneWarmGrey]
+  [p=1,e=PANTONE Warm Grey 7,t=.2,a=1]
+%% Mid Grey
+\definecolor
+  [PantoneSevenFiveFourFour]
+  [c=.34,m=.14,y=.11,k=.32]
+\definespotcolor
+  [midgrey]
+  [PantoneSevenFiveFourFour]
+  [p=1,e=PANTONE 7544 C]
+\definespotcolor
+  [midgrey80]
+  [PantoneSevenFiveFourFour]
+  [p=1,e=PANTONE 7544 C,t=.8,a=1]
+\definespotcolor
+  [midgrey60]
+  [PantoneSevenFiveFourFour]
+  [p=1,e=PANTONE 7544 C,t=.6,a=1]
+\definespotcolor
+  [midgrey40]
+  [PantoneSevenFiveFourFour]
+  [p=1,e=PANTONE 7544 C,t=.4,a=1]
+\definespotcolor
+  [midgrey20]
+  [PantoneSevenFiveFourFour]
+  [p=1,e=PANTONE 7544 C,t=.2,a=1]
+%% Pale Grey
+\definecolor
+  [PantoneSevenFiveFourOne]
+  [c=.05,m=.01,y=.02,k=.02]
+\definespotcolor
+  [palegrey]
+  [PantoneSevenFiveFourOne]
+  [p=1,e=PANTONE 7541 C]
+
+%%% Accent palette
+%% Green
+\definecolor
+  [PantoneThreeSevenSix]
+  [c=.59,m=0,y=1,k=0]
+\definespotcolor
+  [green]
+  [PantoneThreeSevenSix]
+  [p=1,e=PANTONE 376 C]
+\definespotcolor
+  [green80]
+  [PantoneThreeSevenSix]
+  [p=1,e=PANTONE 376 C,t=.8,a=1]
+\definespotcolor
+  [green60]
+  [PantoneThreeSevenSix]
+  [p=1,e=PANTONE 376 C,t=.6,a=1]
+\definespotcolor
+  [green40]
+  [PantoneThreeSevenSix]
+  [p=1,e=PANTONE 376 C,t=.4,a=1]
+\definespotcolor
+  [green20]
+  [PantoneThreeSevenSix]
+  [p=1,e=PANTONE 376 C,t=.2,a=1]
+%% Purple
+\definecolor
+  [PantoneTwoFiveNineSeven]
+  [c=.82,m=1,y=0,k=0]
+\definespotcolor
+  [purple]
+  [PantoneTwoFiveNineSeven]
+  [p=1,e=PANTONE 2597 C]
+\definespotcolor
+  [purple80]
+  [PantoneTwoFiveNineSeven]
+  [p=1,e=PANTONE 2597 C,t=.8,a=1]
+\definespotcolor
+  [purple60]
+  [PantoneTwoFiveNineSeven]
+  [p=1,e=PANTONE 2597 C,t=.6,a=1]
+\definespotcolor
+  [purple40]
+  [PantoneTwoFiveNineSeven]
+  [p=1,e=PANTONE 2597 C,t=.4,a=1]
+\definespotcolor
+  [purple20]
+  [PantoneTwoFiveNineSeven]
+  [p=1,e=PANTONE 2597 C,t=.2,a=1]
+%% Amber
+\definecolor
+  [PantoneOneThreeSeven]
+  [c=0,m=.46,y=1,k=0]
+\definespotcolor
+  [amber]
+  [PantoneOneThreeSeven]
+  [p=1,e=PANTONE 137 C]
+\definespotcolor
+  [amber80]
+  [PantoneOneThreeSeven]
+  [p=1,e=PANTONE 137 C,t=.8,a=1]
+\definespotcolor
+  [amber60]
+  [PantoneOneThreeSeven]
+  [p=1,e=PANTONE 137 C,t=.6,a=1]
+\definespotcolor
+  [amber40]
+  [PantoneOneThreeSeven]
+  [p=1,e=PANTONE 137 C,t=.4,a=1]
+\definespotcolor
+  [amber20]
+  [PantoneOneThreeSeven]
+  [p=1,e=PANTONE 137 C,t=.2,a=1]
+%% Red
+\definecolor
+  [PantoneOneEightFive]
+  [c=0,m=.94,y=.78,k=0]
+\definespotcolor
+  [red]
+  [PantoneOneEightFive]
+  [p=1,e=PANTONE 185 C]
+\definespotcolor
+  [red80]
+  [PantoneOneEightFive]
+  [p=1,e=PANTONE 185 C,t=.8,a=1]
+\definespotcolor
+  [red60]
+  [PantoneOneEightFive]
+  [p=1,e=PANTONE 185 C,t=.6,a=1]
+\definespotcolor
+  [red40]
+  [PantoneOneEightFive]
+  [p=1,e=PANTONE 185 C,t=.4,a=1]
+\definespotcolor
+  [red20]
+  [PantoneOneEightFive]
+  [p=1,e=PANTONE 185 C,t=.2,a=1]
+%% Pink
+\definecolor
+  [PantoneTwoOneNine]
+  [c=.01,m=.92,y=.01,k=0]
+\definespotcolor
+  [pink]
+  [PantoneTwoOneNine]
+  [p=1,e=PANTONE 219 C]
+\definespotcolor
+  [pink80]
+  [PantoneTwoOneNine]
+  [p=1,e=PANTONE 219 C,t=.8,a=1]
+\definespotcolor
+  [pink60]
+  [PantoneTwoOneNine]
+  [p=1,e=PANTONE 219 C,t=.6,a=1]
+\definespotcolor
+  [pink40]
+  [PantoneTwoOneNine]
+  [p=1,e=PANTONE 219 C,t=.4,a=1]
+\definespotcolor
+  [pink20]
+  [PantoneTwoOneNine]
+  [p=1,e=PANTONE 219 C,t=.2,a=1]
+
+%%% Gradient palette
+%% Blue gradient
+%% TODO!!!
+%% Mid Grey gradient
+%% TODO!!!
+%% Purple gradient
+%% TODO!!!
+%% Pink gradient
+%% TODO!!!
+%% Green gradient
+%% TODO!!!
+%% Bright Blue gradient
+%% TODO!!!
+%% Pale grey 1 gradient
+%% TODO!!!
+%% Pale grey 2 gradient
+%% TODO!!!
+%% Red gradient
+%% TODO!!!
 
 \definecolor  [foreground:0]  [h=002b36]
 \definecolor  [foreground:1]  [dbblue]
-\definecolor  [foreground:2]  [brightred]
-\definecolor  [foreground:3]  [g=0.5,b=0,r=0]
-\definecolor  [foreground:4]  [white]
+\definecolor  [foreground:2]  [red]
+\definecolor  [foreground:3]  [green]
+\definecolor  [foreground:4]  [White]
 
-\definecolor  [background:0]  [h=ffffff]
+\definecolor  [background:0]  [White]
 \definecolor  [background:1]  [a=1,t=0.5,h=87cefa]
 \definecolor  [background:2]  [a=1,t=0.5,r=1, g=.71, b=75]
 \definecolor  [background:3]  [a=1,t=0.5,g=0.95,b=0.8,r=0.8] 
 
-\definecolor  [base:0]  [h=000000]
+\definecolor  [base:0]  [Black]
 \definecolor  [base:1]  [h=839496]
 \stopmodule
