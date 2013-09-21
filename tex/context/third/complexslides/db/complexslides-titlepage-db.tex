@@ -2,12 +2,12 @@
 \unprotect
 
 % Style for title page
-\definestyle[titlestyle][style=\bf\ssd, color=foreground:1]
-\definestyle[institutestyle][style=\tfa, color=foreground:1]
-\definestyle[authorstyle][style=\ssb, color=foreground:4]
-\definestyle[datestyle][style=\tf, color=]
-\definestyle[thanksstyle][style=\tf, color=foreground:4]
-\definestyle[locationstyle][style=\tf, color=background:0]
+\definestyle[titlestyle][style=\bf\ssd,color=foreground:1]
+\definestyle[institutestyle][style=\tfa,color=foreground:1]
+\definestyle[authorstyle][style=\ssb,color=foreground:4]
+\definestyle[datestyle][style=\tf,color=]
+\definestyle[thanksstyle][style=\tf,color=foreground:4]
+\definestyle[locationstyle][style=\tf,color=background:0]
 
 \startsetups[complexslides:titlepage]
   \starttitlepagemakeup
@@ -27,7 +27,7 @@
       \blank[3*big]
     \stopalignment
     \setupinteraction
-      [title=\getvariable{talk}{title}, subtitle=\getvariable{talk}{shorttitle}, author=\getvariable{talk}{author}]
+      [title=\getvariable{talk}{title},subtitle=\getvariable{talk}{shorttitle},author=\getvariable{talk}{author}]
     \ctxlua{lpdf.injectxmpinfo("xml://rdf:RDF","<rdf:Description rdf:about='' xmlns:xmpRights='http://ns.adobe.com/xap/1.0/rights/'><xmpRights:Marked>False</xmpRights:Marked></rdf:Description>",false)}
   \stoptitlepagemakeup
 \stopsetups

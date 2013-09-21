@@ -14,7 +14,7 @@
 % template and not specifically distribute it as part of a another
 % package/program, the author grants the extra permission to freely
 % copy and  modify this file as you see fit and even to delete this
-% copyright notice. 
+% copyright notice.
 
 \usemodule
   [complexslides]
@@ -24,22 +24,22 @@
     %% If an option is not specified, %%
     %% `default` value is used.       %%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    fontscheme=db,
+     fontscheme=db,
     colorscheme=db,
-    layout=db,
-    pagestyle=db,
-    setup=db,
-    itemize=db,
-    floats=db,
-    marking=db,
-    titlepage=db,
-    extras={framedtext, % provides \startalert ... \stopaltert
-                        % and \startresult ... \stopresult environment
-           },
+         layout=db,
+      pagestyle=db,
+          setup=db,
+        itemize=db,
+         floats=db,
+        marking=db,
+      titlepage=db,
+         extras={framedtext, % provides \startalert ... \stopaltert
+                             % and \startresult ... \stopresult environment
+                },
   ]
 
 % In order to use sample images distributed with ConTeXt
-\setupexternalfigures[location={local,global,default}] 
+\setupexternalfigures[location={local,global,default}]
 
 \starttext
 
@@ -58,7 +58,7 @@
 % Since this a solution template for a generic talk, very little can
 % be said about how it should be structured. However, the talk length
 % of between 15min and 45min and the theme suggest that you stick to
-% the following rules:  
+% the following rules:
 
 % - Exactly two or three sections (other than the summary).
 % - At *most* three subsections per section.
@@ -80,17 +80,13 @@
 \startslide[title={Picture slide}]
   % To include a full slide picute.
   % \centerbox{\scale[scale=500]{\externalfigure[cow][frame=on]}}
-  % \scale[scale=500]{\externalfigure[cow][frame=on]}
   \externalfigure[cow]
 \stopslide
 
-\startslide[title={Picture slide}]%
-  \framedtext[height=\dimexpr\textheight-1mm\relax,width=\textwidth]{TEST}
+\startslide[title={Text slide}]
+  \framedtext[height=\textheight,width=\textwidth]{TEST}
   \page[yes]
-  \framedtext[height=\dimexpr\textheight-1mm\relax,width=\textwidth]{TEST}
-%  \startframedtext[height=\dimexpr\textheight-1mm\relax,width=\textwidth] TEST \stopframedtext
-%  \page[yes]
-%  \startframedtext[height=\dimexpr\textheight-1mm\relax,width=\textwidth] TEST \stopframedtext
+  \framedtext[height=\textheight,width=\textwidth]{TEST}
 \stopslide
 
 \startslidemakeup
@@ -110,7 +106,6 @@
 \stopslide
 
 \startslide[title={Summary}]
-
   \startitemize
     \item The {\em first main message} of your talk in one or two lines.
     \item The {\em second main message} of your talk in one or two lines.

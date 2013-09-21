@@ -98,7 +98,7 @@
         endfor
            .. (point 1 along pathname)
      endgroup
-  enddef;
+  enddef ;
 
   vardef complexslides_fuzzied(expr pathname, random, stepsize) =
      begingroup ;
@@ -108,15 +108,15 @@
         -- complexslides_fuzzied_line(bottomboundary pathname, random, xpart paired(stepsize))
         -- cycle
      endgroup
-  enddef;
+  enddef ;
 \stopMPdefinitions
 
 \startuseMPgraphic {complexslides:pagebackground}
-  StartPage;
-  begingroup;
-  fill Page withcolor \MPcolor{foreground:0};
-  newnumeric random_amount; random_amount := 0.75EmWidth;
-  newpath page_boundary; 
+  StartPage ;
+  begingroup ;
+  fill Page withcolor \MPcolor{foreground:0} ;
+  newnumeric random_amount ; random_amount := 0.75EmWidth ;
+  newpath page_boundary ;
   if "\currentmakeup" = "" :
       page_boundary := (center Field[LeftMarginSeparator][Bottom]
                      -- center Field[LeftMarginSeparator][Top]
@@ -124,15 +124,15 @@
                      -- center  Field[RightMarginSeparator][Bottom]
                      -- cycle)
   else :
-      page_boundary := Field[Text][Text] enlarged (-random_amount);
-  fi;
+      page_boundary := Field[Text][Text] enlarged (-random_amount) ;
+  fi ;
 
-  page_boundary := complexslides_fuzzied(page_boundary, random_amount, 0.1);
+  page_boundary := complexslides_fuzzied(page_boundary, random_amount, 0.1) ;
 
-  fill page_boundary withcolor \MPcolor{background:0};
+  fill page_boundary withcolor \MPcolor{background:0} ;
 
-  draw page_boundary withcolor \MPcolor{foreground:1} 
-       withpen pencircle scaled 6bp;
+  draw page_boundary withcolor \MPcolor{foreground:1}
+       withpen pencircle scaled 6bp ;
 
   if "\currentmakeup" = "" :
      newpath left_boundary, right_boundary;
@@ -141,7 +141,7 @@
                      -- urcorner Field[LeftMargin][Header]
                      -- lrcorner Field[LeftMargin][Footer]
                      -- cycle)
-                     enlarged (random_amount/2);
+                     enlarged (random_amount/2) ;
       left_boundary  := complexslides_fuzzied(left_boundary, random_amount, (0.2, 0.1));
 
       right_boundary := (llcorner Field[RightMargin][Footer]
@@ -149,24 +149,24 @@
                       -- urcorner Field[RightMargin][Header]
                       -- lrcorner Field[RightMargin][Footer]
                       -- cycle)
-                      enlarged (random_amount/2);
+                      enlarged (random_amount/2) ;
 
       right_boundary := complexslides_fuzzied(right_boundary, random_amount, (0.2, 0.1));
-      
-     if LeftMarginWidth > 2pt :
-        draw left_boundary 
-           withcolor \MPcolor{foreground:1}
-           withpen pencircle scaled 6bp;
 
-       fill left_boundary withcolor \MPcolor{background:0};
+     if LeftMarginWidth > 2pt :
+        draw left_boundary
+           withcolor \MPcolor{foreground:1}
+           withpen pencircle scaled 6bp ;
+
+       fill left_boundary withcolor \MPcolor{background:0} ;
      fi
 
      if RightMarginWidth > 2pt :
-        draw right_boundary 
+        draw right_boundary
            withcolor \MPcolor{foreground:1}
-           withpen pencircle scaled 6bp;
+           withpen pencircle scaled 6bp ;
 
-       fill right_boundary withcolor \MPcolor{background:0};
+       fill right_boundary withcolor \MPcolor{background:0} ;
      fi
 
      newpath header_boundary;
@@ -174,11 +174,11 @@
      draw complexslides_fuzzied_line(header_boundary shifted (0,-random_amount),
                                      random_amount, 0.1)
            withcolor \MPcolor{foreground:1}
-           withpen pencircle scaled 6bp;
+           withpen pencircle scaled 6bp ;
 
-  fi;
-  endgroup;
-  StopPage;
+  fi ;
+  endgroup ;
+  StopPage ;
 \stopuseMPgraphic
 
 \defineoverlay[complexslides:pagebackground][\useMPgraphic{complexslides:pagebackground}]

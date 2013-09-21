@@ -33,10 +33,10 @@
            \c!color=foreground:1,
        \c!placehead=\v!empty,
           \c!number=\v!no,
-            \c!page=\v!yes, % topspace?
+            \c!page=\v!yes,
           \c!before=,
-%           \c!after={\blank[\v!small]},
            \c!after=,
+           \c!alternative=text,
           ]
 
 \definehead
@@ -71,10 +71,10 @@
   [\c!style=]
 
 \startreusableMPgraphic {complexslides:pagebackground}
-  StartPage;
-  % fill Page withcolor \MPcolor{foreground:1};
-  % circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1});
-  newpath page_boundary;
+  StartPage ;
+  % fill Page withcolor \MPcolor{foreground:1} ;
+  % circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1}) ;
+  newpath page_boundary ;
   if "\currentmakeup" = "" :
       page_boundary :=  complexslides_lccorner Field[LeftMarginSeparator][Bottom]
                      -- center Field[LeftMarginSeparator][HeaderSeparator]
@@ -82,11 +82,11 @@
                      -- complexslides_lccorner Field[RightMarginSeparator][Bottom]
                      -- cycle ;
   else :
-      page_boundary := Field[Text][Text];
-  fi;
+      page_boundary := Field[Text][Text] ;
+  fi ;
 
-  fill page_boundary superellipsed 0.98 withcolor \MPcolor{background:0};
-  StopPage;
+  fill page_boundary superellipsed 0.98 withcolor \MPcolor{background:0} ;
+  StopPage ;
 \stopreusableMPgraphic
 
 \startuniqueMPgraphic{complexslides:pagebackground:logo}{color}
