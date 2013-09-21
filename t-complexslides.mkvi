@@ -19,7 +19,7 @@
 \setvariables
   [talk]
   [author=,
-   shortauthor={\getvariable{talk}{author}},,
+   shortauthor={\getvariable{talk}{author}},
    title=,
    shorttitle={\getvariable{talk}{title}},
    institute=,
@@ -36,13 +36,13 @@
       {\usemodule[complexslides-extras-#extra]}
 
 \startMPdefinitions
-  vardef complexslides_lccorner primary p = 
+  vardef complexslides_lccorner primary p =
       0.5[llcorner p, lrcorner p]
-  enddef;
+  enddef ;
 
-  vardef complexslides_uccorner primary p = 
+  vardef complexslides_uccorner primary p =
       0.5[ulcorner p, urcorner p]
-  enddef;
+  enddef ;
 \stopMPdefinitions
 
 
@@ -59,7 +59,7 @@
 \setupinteraction
   [state=start,style=]
 
-\setupcolors  [textcolor=foreground:0]
+\setupcolors [textcolor=foreground:0]
 
 \processcommacommand[\currentmoduleparameter{extras}]\complexslides_load_extra_configuration
 
