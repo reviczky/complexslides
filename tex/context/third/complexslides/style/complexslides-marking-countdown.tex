@@ -2,7 +2,7 @@
 \unprotect
 
 \usemodule[visualcounter]
-\definevisualcounter[page][countdown][counter=userpage, palette=colorpalette]
+\definevisualcounter[page][countdown][counter=userpage,palette=colorpalette]
 
 \definepalet
   [colorpalette]
@@ -18,7 +18,7 @@
 
 \startuseMPgraphic{complexslides:footer:frame}
    save p;  path p;
-   p := (0,OverlayHeight) -- (OverlayWidth if "\currentmakeup" = "" : /2 fi, OverlayHeight);
+   p := (0, OverlayHeight) -- (OverlayWidth if "\currentmakeup" = "" : /2 fi, OverlayHeight);
    for i := 1 upto 5 :
     draw p randomized 2bp
       withcolor \MPcolor{foreground:1};
