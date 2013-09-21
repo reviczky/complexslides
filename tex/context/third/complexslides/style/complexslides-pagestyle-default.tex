@@ -88,10 +88,10 @@
   [\c!style=]
 
 \startuseMPgraphic {complexslides:pagebackground}
-  StartPage;
+  StartPage ;
   % fill Page withcolor \MPcolor{foreground:1};
-  circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1});
-  newpath page_boundary; 
+  circular_shade (Page, 4, \MPcolor{foreground:1}, \MPcolor{base:1}) ;
+  newpath page_boundary ;
   if "\currentmakeup" = "" :
       page_boundary :=  complexslides_lccorner Field[LeftMarginSeparator][Bottom]
                      -- center Field[LeftMarginSeparator][HeaderSeparator]
@@ -99,11 +99,11 @@
                      -- complexslides_lccorner Field[RightMarginSeparator][Bottom]
                      -- cycle ;
   else :
-      page_boundary := Field[Text][Text];
-  fi;
+      page_boundary := Field[Text][Text] ;
+  fi ;
 
-  fill page_boundary superellipsed 0.98 withcolor \MPcolor{background:0};
-  StopPage;
+  fill page_boundary superellipsed 0.98 withcolor \MPcolor{background:0} ;
+  StopPage ;
 \stopuseMPgraphic
 
 \defineoverlay[complexslides:pagebackground][\useMPgraphic{complexslides:pagebackground}]
